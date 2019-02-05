@@ -1,0 +1,24 @@
+---
+title: "individual1"
+author: "Danny Nguyen"
+date: "February 5, 2019"
+output: html_document
+---
+
+
+## R Markdown
+
+1. How are ratings distributed? Draw a histogram of ratings and describe it. Don't forget to mention outliers, if there are any. 
+
+Based on the image of the histogram, there is sort of an outlier right by the number 5 rating. If the outlier were not there, the graph could potentially be considered left-skewed. However, with the outlier, the graph displays a large amount of ratings located around the number 3 rating.
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+hist(choco$Rating)
+```
+
+2. Do ratings depend on the cacao percentage of a chocolate bar?
+
+Based on the following graph, it seems that ratings do not really depend on the cacao percentage of a chocolate bar. Most ratings located around the same percentage seem to span across the entire rating scale. For example, the 70 percent area has ratings for the integers from 1 through 5. Another example for a specific rating, rating number 3 has a lot of ratings with percentages ranging from 50 to 100. Therefore, it could be a relatively safe assumption that ratings do not really depend on the cacao percentage of a chocolate bar.
+```{r}
+plot(choco$Rating, choco$Cocoa.Pct, pch=19)
+```
