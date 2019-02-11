@@ -11,22 +11,43 @@ knitr::opts_chunk$set(echo = TRUE)
 
 1. What is the overall number of chocolate bars rated?
 Based on the summary statistics, the average/mean rating is approximately 3.191.
+
 ```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
 summary(choco)
 mean(choco$Rating)
 ```
+
 2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
+
 Based on the bar chart. The number of ratings appears to have gradually increased with a slight decline in the last few years.
+
 ```{r}
 barplot(table(choco$Review.Date), main="Number of Reports per Year", xlab="Review Year", ylab="Number of Reports")
 ```
+
 3. How do ratings compare across different company locations? Focus on the three locations with the most ratings. (Hint: They are U.S.A., France, and Canada, but find them out using codes.)
 
+Using an aggregate of the ratings and company location it shows that the top three are Canada, France, and U.S.A.. Canada is the best of the big three at 3.3125, France sits at an average of 3.2532, and U.S.A. at 3.1623.
+
+```{r}
+library(ggplot2)
+table(choco$Company.Location)
+choco2 <- aggregate(Rating ~ Company.Location, choco, mean)
+ggplot(subset(choco2, Company.Location %in% c("U.S.A.", "Canada", "France")), aes(x=Company.Location, y=Rating)) + geom_bar(stat="identity") + geom_text(aes(label=Rating), vjust=1.5, color="white") + coord_cartesian(ylim = c(3.0, 3.5))
+```
 
 4. Brainstorm and write down an interesting question that can be answer from the dataset. The question should not duplicate the questions above.
 
+Have the average ratings for chocolate bars changed over time?
 
 5. Answer the question from the dataset.
 
+The change is very small but it appears that as time goes on there are less extreme (1 or 5) reviews. Review spread also decreases. The average aslo appears to go up ever so slightly with time as well.
+
+```{r}
+ggplot(choco, aes(x=Review.Date, y=Rating)) + geom_point(size=4) + 
+geom_smooth(method=lm)
+```
 https://github.com/dannyn95/ds202_lab2
 
