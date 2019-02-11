@@ -1,0 +1,20 @@
+---
+title: "team"
+author: "Danny Nguyen & COnnor Hergenreter" 
+date: "February 11, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. What is the overall number of chocolate bars rated?
+
+2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
+
+3. How do ratings compare across different company locations? Focus on the three locations with the most ratings. (Hint: They are U.S.A., France, and Canada, but find them out using codes.)
+
+4. Brainstorm and write down an interesting question that can be answer from the dataset. The question should not duplicate the questions above.
+
+5. Answer the question from the dataset.
