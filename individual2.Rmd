@@ -1,0 +1,32 @@
+---
+title: "Lab 2"
+author: "Connor Hergenreter"
+git user: ""
+date: "February 11, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+```
+
+##Question 1.
+
+```{r}
+hist(choco$Rating, labels = TRUE, ylim=c(0, 750))
+```
+
+The histogram of chocolate ratings appears to be slightly skewed to the left. Most (722) chocolate bars are given a rating between 3.0 and 3.5. The lowest rated 14 are between 0 and 0.5 while the top 2 are rated between 4.5 and 5.
+
+##Quesation 2.
+
+```{r}
+plot(x = choco$Cocoa.Pct, y = choco$Rating, main = "Rating and Cocoa %", xlab = "Cocoa %", ylab = "Rating", xlim = c(40, 100), ylim = c(1.0, 5.0))
+```
+
+After examining the scatterplot, it does not appear that rating is impacted by cocoa percentage. There is no clear relationship noticeable. 100% cocoa does seem to be a bit lower than the rest, however.
