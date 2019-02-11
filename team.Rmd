@@ -51,3 +51,4 @@ geom_smooth(method=lm)
 ```
 https://github.com/dannyn95/ds202_lab2
 
+Our workflow was relatively efficient. It took us roughly an hour to two hours to complete the lab. We divided the work between the both of us. I did questions 1 and 2 while Connor did 3 and 4. Connor also did question 5 since it went along with question 4. Once I completed questions 1 and 2, I pushed them in. Connor then did his part for 3, 4, and 5 pushed it. I made some final adjustments, and this is the final part.
